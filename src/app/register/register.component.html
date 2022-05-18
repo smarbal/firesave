@@ -1,0 +1,40 @@
+<form class="form-signin" #f="ngForm" (ngSubmit)="register(f.value)">
+    <h2 class="form-signin-heading">Fill in the data to register</h2>
+    <div *ngIf="invalidRegister" class="alert alert-danger">Couldn't register you.</div>
+
+
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="username" id="inputUsername" name="username" ngModel class="form-control" placeholder="Username" required
+        autofocus>
+
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password"
+        required>
+
+    <label for="inputServiceNumber" class="sr-only">Service Number</label>
+    <input  name="service_number" ngModel class="form-control" placeholder="20219999"
+        required>
+
+    <label for="inputLastname" class="sr-only">Lastname</label>
+    <input  name="lastname" ngModel class="form-control" placeholder="Van Piperzeel"
+        required>
+
+    <label for="inputFirstname" class="sr-only">Firstname</label>
+    <input  name="firstname" ngModel class="form-control" placeholder="Pierre"
+        required>
+
+    <label for="inputRoom" class="sr-only">Room</label>
+    <input  name="room" ngModel class="form-control" placeholder="1k01"
+        required>
+
+    <label for="inputProm" class="sr-only">Prom</label>
+    <input  name="prom_name" ngModel class="form-control" placeholder="SDIV"
+        required>
+    <button class="btn btn-lg btn-block btn-danger" type="submit">Register</button>
+
+
+
+
+
+</form>
