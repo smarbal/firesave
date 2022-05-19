@@ -19,6 +19,9 @@ export class AuthService {
       this.currentUser = this.jwt.decodeToken(token);
     }
   }
+  islogged(){
+    return localStorage.hasOwnProperty('token')
+  }
 // Login with username and password. JWT token is used to id the user. 
   login(credentials: any){
     const payload = new URLSearchParams();

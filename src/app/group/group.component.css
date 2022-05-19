@@ -1,0 +1,6 @@
+table {
+    width: 70% ;
+}
+.active {
+    background-color: green;
+}
