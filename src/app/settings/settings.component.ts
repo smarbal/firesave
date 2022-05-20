@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent  {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  invalidRegister = false
+
+  constructor(private authService: AuthService, private userService: UserService) { }
+  
+  user = this.userService.user
+  update(data: any){
+    this.userService.update(data)
+    .subscribe(result => { 
+      if (result){
+        console.log("Updated data")
+        this.userService.saveUser()
+      }
+      else  
+        this.invalidRegister = true; 
+    });
   }
 
 }

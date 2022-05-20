@@ -1,1 +1,33 @@
-<p>settings works!</p>
+<form class="form-signin" #f="ngForm" (ngSubmit)="update(f.value)">
+    <h2 class="form-signin-heading">Make changes to your data</h2>
+    <div *ngIf="invalidRegister" class="alert alert-danger">Couldn't register you.</div>
+
+
+    <label for="inputUsername" class="sr-only">Username : {{user.username}}</label>
+    <br>
+
+    <label for="inputServiceNumber" class="sr-only" name="service_number">Service Number : {{user.service_number}}</label>
+    <br>
+
+    <label for="inputLastname" class="sr-only">Lastname</label>
+    <input  name="lastname" ngModel class="form-control" [(ngModel)]="user.lastname"
+        required>
+
+    <label for="inputFirstname" class="sr-only">Firstname</label>
+    <input  name="firstname" ngModel class="form-control" [(ngModel)]="user.firstname"
+        required>
+
+    <label for="inputRoom" class="sr-only">Room</label>
+    <input  name="room" ngModel class="form-control" [(ngModel)]="user.room"
+        required>
+
+    <label for="inputProm" class="sr-only">Prom</label>
+    <input  name="prom_name" ngModel class="form-control" [(ngModel)]="user.prom_name"
+        required>
+    <button class="btn btn-lg btn-block btn-danger" type="submit">Save</button>
+
+
+
+
+
+</form>
