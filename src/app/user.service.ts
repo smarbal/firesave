@@ -18,6 +18,9 @@ export class UserService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
+  setUser(){
+    this.user = JSON.parse(localStorage.getItem('user')!);
+  }
   saveUser(){
     localStorage.setItem('user', JSON.stringify(this.user));
   }
@@ -35,8 +38,8 @@ export class UserService {
   update(data: any){
     const payload = new URLSearchParams();
     for (let key in data) {
-      payload.set(key, data.key)
-      this.user.key = data.key
+      payload.set(key, data[key])
+      this.user.key = data[key]
     }
     return this.http.put(this.api + 'user/' + this.user.service_number, payload, this.options)
   }

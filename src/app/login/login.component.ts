@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../auth.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class LoginComponent {
   invalidLogin = false
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) { }
 
   signIn(credentials: string) {
     this.authService.login(credentials)
@@ -17,7 +18,8 @@ export class LoginComponent {
         if (result) {
           //this.router.navigate(['/']);
           this.router.navigate(['home'], { });
-          this.authService.isLoggedIn = true
+          this.authService.isLoggedIn = true;
+          this.userService.setUser();
         }
         else  {
           this.invalidLogin = true; 
