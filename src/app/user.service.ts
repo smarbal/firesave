@@ -18,9 +18,7 @@ export class UserService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
-  setUser(){
-    this.user = JSON.parse(localStorage.getItem('user')!);
-  }
+
   saveUser(){
     localStorage.setItem('user', JSON.stringify(this.user));
   }

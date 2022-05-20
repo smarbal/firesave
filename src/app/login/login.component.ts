@@ -19,7 +19,6 @@ export class LoginComponent {
           //this.router.navigate(['/']);
           this.router.navigate(['home'], { });
           this.authService.isLoggedIn = true;
-          this.userService.setUser();
         }
         else  {
           this.invalidLogin = true; 
