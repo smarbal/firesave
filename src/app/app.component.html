@@ -45,9 +45,9 @@
     </div>
   </div>
 </nav>
-<nav>
-
-</nav>
+<div class="alert alert-danger" role="alert" *ngIf="alert">
+  🔥 There is a fire in your building ! Make sure to evacuate and that your status is correct. 🔥
+</div>
 <body>
   <router-outlet></router-outlet>
 </body>

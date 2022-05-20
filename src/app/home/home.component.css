@@ -5,3 +5,8 @@ button{
     margin: 50px;
     font-size:x-large;
 }
+
+.btn-xlarge {
+    font-weight: bolder;
+    font-size:x-large
+ }

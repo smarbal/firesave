@@ -14,7 +14,7 @@ export class HomeComponent {
   
   loggedIn: boolean = this.authService.islogged()!;
   insideRoom: boolean= this.userService.user.inside
-
+  showAlertValidation = false 
   saveInside(){
     this.insideRoom = !this.insideRoom
     this.userService.user.inside = this.insideRoom;
