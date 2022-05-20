@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GroupService } from '../group.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-group',
@@ -9,28 +11,16 @@ export class GroupComponent  {
 
   headers = ["Firstname", "Lastname", "Service number", "Room", "Inside"];
   fields = ["firstname", "lastname", "service_number", "room"]; // Inside is not in it so it's easier to apply a style based on value
-  students :any = [{
-    "service_number": 10,
-    "lastname": "a",
-    "firstname": "a",
-    "username": "wiener",
-    "room": "1a",
-    "inside": true,
-    "password": "$2b$05$BYQZD46gDBarkGN1LeJDwu6JfN0Co0yseXjLdYiHA4fcjuiI3Fr0K",
-    "prom_name": "SDIV"
-}, {
-  "service_number": 10,
-  "lastname": "a",
-  "firstname": "a",
-  "username": "wiener",
-  "room": "1a",
-  "inside": true,
-  "password": "$2b$05$BYQZD46gDBarkGN1LeJDwu6JfN0Co0yseXjLdYiHA4fcjuiI3Fr0K",
-  "prom_name": "SDIV"
-}]
+  students :any 
 
-
-  constructor() { }
+  constructor(private groupService: GroupService, private userService: UserService) { 
+    groupService.getGroup(userService.user.prom_name).subscribe((data: any) =>
+    {
+      this.students = data.users;
+      console.log(this.students);
+    }
+    )
+  }
 
 }
 

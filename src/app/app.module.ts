@@ -38,7 +38,7 @@ import { SettingsComponent } from './settings/settings.component';
     RouterModule.forRoot([
       //{ path: '', component: TravelsComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent, canActivate: [AuthService] },
       { path: 'group', component: GroupComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'register', component: RegisterComponent },

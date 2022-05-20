@@ -7,19 +7,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
       <tr *ngFor = "let row of students">
         <td *ngFor = "let column of fields">
           {{row[column]}}
         </td>
-        <td [ngClass]="{'active' : row.inside}">
-        </td>
-        <td><input type="checkbox" name="name1" />&nbsp;</td>
+          <td [ngClass]="row.inside ? 'active' : 'inactive'"> </td>
+        <td>  <input class="form-check-input checked" type="checkbox" value="" ></td>
       </tr>
     </tbody>
   </table>

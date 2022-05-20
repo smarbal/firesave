@@ -2,23 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { map } from 'rxjs/operators';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-export class AuthService {
-  currentUser: any; 
+export class AuthService implements CanActivate {
+  isLoggedIn: boolean;
   jwt = new JwtHelperService();
   api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
-
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
-  constructor(private http: HttpClient) { 
-    let token = localStorage.getItem('token');
-    if (token) {
-      this.currentUser = this.jwt.decodeToken(token);
-    }
+  constructor(private http: HttpClient, private router: Router) { 
+
+    this.isLoggedIn = localStorage.hasOwnProperty('token')
   }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem('token')) {
+        // logged in so return true
+        return true;
+    }
+
+    // not logged in so redirect to login page with the return url
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    return false;
+}
+
+
   islogged(){
     return localStorage.hasOwnProperty('token')
   }
@@ -33,7 +43,6 @@ export class AuthService {
         if (res && res.token) {
           localStorage.setItem('token', res.token);
           localStorage.setItem('user', JSON.stringify(res.user));
-          this.currentUser = this.jwt.decodeToken(localStorage.getItem('token')!);
           //console.log(this.currentUser)
           return true
         }
@@ -44,6 +53,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("token");
+    this.isLoggedIn = false
 }
 
   register(data: any){

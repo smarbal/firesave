@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="fas fa-bars"></i>
+    <i class="bi bi-list"></i>      <!-- <i class="fas fa-bars"></i> -->
     </button>
     <div
       class="collapse navbar-collapse"
@@ -16,7 +16,7 @@
       mdbCollapse
       #noListNav="mdbCollapse"
     >
-      <div class="navbar-nav">
+      <div class="navbar-nav" *ngIf="isLoggedIn">
         <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
         <a class="nav-link" routerLink="group" routerLinkActive="active">Group</a>
         <a class="nav-link" routerLink="settings" routerLinkActive="active">Settings</a> 
@@ -26,13 +26,20 @@
       </div>
       
     </div>
-    <div class="collapse navbar-collapse justify-content-right" mdbCollapse #rightAligned="mdbCollapse">
+    <div class="collapse navbar-collapse justify-content-right" mdbCollapse #rightAligned="mdbCollapse" *ngIf="!isLoggedIn">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>  
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-right" mdbCollapse #rightAligned="mdbCollapse" *ngIf="isLoggedIn">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>
