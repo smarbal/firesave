@@ -28,9 +28,16 @@ export class UserService {
     const payload = new URLSearchParams();
     payload.set('inside', this.user.inside);
 
-    console.log(this.api + 'inside/' + this.user.service_number)
-
     this.http.put(this.api + 'inside/' + this.user.service_number, payload, this.options).subscribe(data => console.log(data))
 
+  }
+
+  update(data: any){
+    const payload = new URLSearchParams();
+    for (let key in data) {
+      payload.set(key, data.key)
+      this.user.key = data.key
+    }
+    return this.http.put(this.api + 'user/' + this.user.service_number, payload, this.options)
   }
 }
