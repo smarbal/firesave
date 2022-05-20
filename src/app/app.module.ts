@@ -15,6 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { GroupComponent } from './group/group.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 
 @NgModule({
@@ -35,6 +38,7 @@ import { SettingsComponent } from './settings/settings.component';
     HttpClientModule,
     FormsModule, 
     MdbCollapseModule,
+    SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       //{ path: '', component: TravelsComponent },
       { path: 'login', component: LoginComponent },

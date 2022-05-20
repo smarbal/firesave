@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent {
 
-  constructor(private authService: AuthService, public userService: UserService) { }
+  constructor(private authService: AuthService, public userService: UserService, private socket: Socket) { }
   
   loggedIn: boolean = this.authService.islogged()!;
   insideRoom: boolean= this.userService.user.inside
@@ -18,5 +19,8 @@ export class HomeComponent {
     this.insideRoom = !this.insideRoom
     this.userService.user.inside = this.insideRoom;
     this.userService.updateUserInside();
+  }
+  alert(){
+    this.socket.emit('alert', 'alert');
   }
 }
