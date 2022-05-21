@@ -22,6 +22,9 @@ export class UserService {
   saveUser(){
     localStorage.setItem('user', JSON.stringify(this.user));
   }
+  setUser(){
+    this.user = JSON.parse(localStorage.getItem('user')!);
+  }
   
   updateUserInside() {
     this.saveUser();

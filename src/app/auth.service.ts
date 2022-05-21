@@ -53,6 +53,7 @@ export class AuthService implements CanActivate {
 
   logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     this.isLoggedIn = false
 }
 
