@@ -7,6 +7,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 @Injectable()
 export class AuthService implements CanActivate {
   isLoggedIn: boolean;
+  token = localStorage.getItem('token')
   jwt = new JwtHelperService();
   api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
   options = {
@@ -14,9 +15,9 @@ export class AuthService implements CanActivate {
   };
 
   constructor(private http: HttpClient, private router: Router) { 
-
     this.isLoggedIn = localStorage.hasOwnProperty('token')
   }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('token')) {
         // logged in so return true

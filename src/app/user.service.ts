@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/internal/operators/map';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UserService {
 
 
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   user = JSON.parse(localStorage.getItem('user')!);
   api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
@@ -38,6 +39,7 @@ export class UserService {
 
   update(data: any){
     const payload = new URLSearchParams();
+    payload.set("token", this.authService.token!)
     for (let key in data) {
       payload.set(key, data[key])
       this.user.key = data[key]

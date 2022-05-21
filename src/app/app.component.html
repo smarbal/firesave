@@ -20,7 +20,7 @@
         <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
         <a class="nav-link" routerLink="group" routerLinkActive="active">Group</a>
         <a class="nav-link" routerLink="settings" routerLinkActive="active">Settings</a> 
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" routerLink="admin" routerLinkActive="active" *ngIf="this.user.isAdmin">Admin</a>
         
         
       </div>

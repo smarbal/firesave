@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { GroupComponent } from './group/group.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { AdminComponent } from './admin/admin.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -29,6 +30,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     RegisterComponent,
     GroupComponent,
     SettingsComponent,
+    AdminComponent,
     
   ],
   imports: [
@@ -46,6 +48,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
       { path: 'group', component: GroupComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'admin', component: AdminComponent },
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
       //{ path: 'admin', component: AdminComponent }, 
