@@ -10,9 +10,8 @@ table {
     background-color: rgb(217, 12, 5);
 }
 
-input.form-check-input {
-    width : 25px;
-    height : 25px;
+#Edit {
+    margin-left: 55%;
 }
 
 input:checked  {
@@ -20,3 +19,12 @@ input:checked  {
 }
 
 
+form {
+    margin-left: 30%;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+#numberInput {
+    width: 300px;
+}

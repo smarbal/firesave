@@ -1,3 +1,4 @@
+<h1>Prom : {{this.prom}}</h1>
 <table class="table">
     <thead>
       <tr>
@@ -13,6 +14,29 @@
         </td>
           <td [ngClass]="row.inside ? 'active' : 'inactive'"> </td>
         <td>  <input class="form-check-input checked" type="checkbox" value="" ></td>
+        <td> <button type="button" class="btn btn-danger" *ngIf="editMode" (click)="removeUser(row.service_number)" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg> 
+        Remove </button>
+        </td>
       </tr>
     </tbody>
-  </table>
+</table>
+
+<form *ngIf="editMode" #f="ngForm" (ngSubmit)="addUser(f.value)">
+<div class="row g-3 align-items-center" >
+  <div class="col-auto">
+    <label for="inputNumber" class="col-form-label">Add user : </label>
+  </div>
+  <div class="col-auto">
+    <input id="inputNumber" class="form-control" placeholder="Service number">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</div>
+</form>
+
+<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="!editMode">Enter edit mode</button>
+<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="editMode">Exit edit mode</button>

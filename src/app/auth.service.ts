@@ -43,8 +43,8 @@ export class AuthService implements CanActivate {
       map((res: any) => {
         if (res && res.token) {
           localStorage.setItem('token', res.token);
+          this.token = res.token
           localStorage.setItem('user', JSON.stringify(res.user));
-          //console.log(this.currentUser)
           return true
         }
         else throw Error; 
