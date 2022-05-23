@@ -1,1 +1,124 @@
-<p>admin works!</p>
+<mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>All</mat-option>
+      <mat-option *ngFor="let sel_prom of proms" [value]=sel_prom >{{sel_prom.prom_name}}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div *ngIf="selected">
+    <h1>Prom : {{selected.prom_name}} ({{selected.battalion}})</h1>
+ <button type="button" class="btn btn-danger" *ngIf="editMode" (click)="removeProm(selected.prom_name)" >
+    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+  </svg> 
+  Remove </button>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th *ngFor = "let column of headers">
+            {{column}}
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let row of selected.users">
+        <td *ngFor = "let column of fields">
+          {{row[column]}}
+        </td>
+          <td [ngClass]="row.inside ? 'active' : 'inactive'"> </td>
+        <td>  <input class="form-check-input checked" type="checkbox" value="" ></td>
+        
+      </tr>
+    </tbody>
+</table>
+
+
+</div>
+
+<div *ngIf="selected == null">
+<div *ngFor = "let prom of proms" >
+<h1>Prom : {{prom.prom_name}} ({{prom.battalion}})</h1>
+ <button type="button" class="btn btn-danger" *ngIf="editMode" (click)="removeProm(prom.prom_name)" >
+    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+  </svg> 
+  Remove </button>
+<table class="table">
+    <thead>
+      <tr>
+        <th *ngFor = "let column of headers">
+            {{column}}
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let row of prom.users">
+        <td *ngFor = "let column of fields">
+          {{row[column]}}
+        </td>
+          <td [ngClass]="row.inside ? 'active' : 'inactive'"> </td>
+        <td>  <input class="form-check-input checked" type="checkbox" value="" ></td>
+        
+      </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<!-- <form *ngIf="editMode" #f="ngForm" (ngSubmit)="addProm(f.value)">
+    <div class="input-group">
+        <span class="input-group-text">First and last name</span>
+        <input type="text" aria-label="First name" class="form-control"  />
+        <input type="text" aria-label="Last name" class="form-control" />
+    </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</form> -->
+
+<!-- <form *ngIf="editMode" #f="ngForm" (ngSubmit)="addProm(f.value)">
+    <div class="row g-3 align-items-center" >
+
+      <div class="col-auto">
+        <label for="inputName" class="col-form-label">Add prom : </label>
+      </div>
+
+      <div class="col-auto">
+        <input id="inputName" type="test" class="form-control" name="input1" placeholder="Prom Name">
+      </div>
+
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </div>
+    </div>
+</form> -->
+
+<!-- <form  #f="ngForm" (ngSubmit)="addProm(f.value)">  
+    <div class="row g-3 align-items-center" >
+    <label for="inputName" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" name="name" ngModel class="form-control" placeholder="Username" required
+        autofocus>
+    <label for="inputBattalion" class="sr-only">Password</label>
+    <input type="text" id="inputBattalion" name="battalion" ngModel class="form-control" placeholder="Password"
+        required>
+    <button class="btn btn-lg  btn-block" type="submit">Sign in</button>
+</div>
+  </form> -->
+    
+  <form  #f="ngForm" *ngIf="editMode" (ngSubmit)="addProm(f.value)" id="AddProm">  
+    <div class="row g-3 align-items-center input-group" >
+    <label for="inputName" class="sr-only">Add new prom</label>
+    <input type="text" id="inputName" name="name" ngModel class="form-control col-auto" placeholder="Name" required
+        autofocus>
+    <input type="text" id="inputBattalion" name="battalion" ngModel class="form-control col-auto" placeholder="Battalion"
+        required>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
+    </div>
+  </form>
+<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="!editMode">Enter edit mode</button>
+<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="editMode">Exit edit mode</button>

@@ -9,8 +9,8 @@ import { UserService } from '../user.service';
 })
 export class GroupComponent  {
 
-  headers = ["Firstname", "Lastname", "Service number", "Room", "Inside"];
-  fields = ["firstname", "lastname", "service_number", "room"]; // Inside is not in it so it's easier to apply a style based on value
+  headers = ["Firstname", "Lastname", "Service number", "Room", "Inside"];  // Titles of the table
+  fields = ["firstname", "lastname", "service_number", "room"]; // Inside is not in it because it's easier to apply a style based on value
   students :any 
   editMode: boolean = false
   prom = this.groupService.prom
@@ -36,6 +36,7 @@ export class GroupComponent  {
       this.students.splice( removeIndex, 1 );
     })
   }
+  
   addUser(service_number: any){
     console.log(service_number)
     this.groupService.addUser(service_number)

@@ -4,3 +4,6 @@
 html, body{ background-color: #efedd7; 
     text-align: center;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

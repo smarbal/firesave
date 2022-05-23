@@ -1,0 +1,38 @@
+table {
+    width: 70% ;
+    margin-left: auto;
+    margin-right: auto;
+}
+.active {
+    background-color: rgb(100, 206, 100);
+}
+.inactive {
+    background-color: rgb(217, 12, 5);
+}
+
+#Edit {
+    margin-left: 55%;
+}
+
+input:checked  {
+    background-color: rgb(100, 206, 100);
+}
+
+
+form {
+    margin-left: 30%;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+#numberInput {
+    width: 300px;
+}
+
+#AddProm{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    max-width:fit-content;
+    margin-top: 30px;
+}
