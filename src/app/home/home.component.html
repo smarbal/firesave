@@ -1,4 +1,4 @@
-<h1> Are you in the room {{this.userService.user.room}} ?</h1>
+<h1> Are you in the room {{user.room}} ?</h1>
 
 <button type="button" class="btn" [ngClass]="insideRoom ? 'btn-success' : 'btn-outline-success'" (click)="!insideRoom && saveInside()" >
     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">

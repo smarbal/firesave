@@ -12,7 +12,14 @@
         <td *ngFor = "let column of fields">
           {{row[column]}}
         </td>
-          <td [ngClass]="row.inside ? 'active' : 'inactive'"> </td>
+
+
+          <td [ngClass]="row.inside ? 'active' : 'inactive'" *ngIf="row.hasOwnProperty('inside');else empty"> </td>
+          <ng-template #empty>
+            <td class="empty" #empty> </td>
+          </ng-template>
+
+
         <td>  <input class="form-check-input checked" type="checkbox" value="" ></td>
         <td> <button type="button" class="btn btn-danger" *ngIf="editMode" (click)="removeUser(row.service_number)" >
           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">

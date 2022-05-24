@@ -26,5 +26,13 @@ export class SettingsComponent  {
         this.invalidRegister = true; 
     });
   }
+  deleteUser(){
+    this.userService.deleteUser().subscribe(
+      ()  => {
+        console.log('deleted')
+        this.authService.logout()
+      }
+    )
+  }
 
 }

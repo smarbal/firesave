@@ -28,3 +28,7 @@ form {
 #numberInput {
     width: 300px;
 }
+
+.empty{
+    background-color: rgb(181, 181, 181);
+}

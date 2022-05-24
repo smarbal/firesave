@@ -22,10 +22,7 @@ export class AdminService {
     return this.http.get(this.api + 'prom/?token='+this.authService.token, this.options)
   }
 
-  removeProm(prom_name: string){
-      const payload = new URLSearchParams();
-      payload.set("token", this.authService.token!)
-  
+  removeProm(prom_name: string){  
       return this.http.delete(this.api + 'prom/' + prom_name, this.options)
     }
   

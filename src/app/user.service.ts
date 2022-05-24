@@ -17,6 +17,7 @@ export class UserService {
 
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+                              .set('x-access-token',this.authService.token! )
   };
 
 
@@ -45,5 +46,9 @@ export class UserService {
       this.user.key = data[key]
     }
     return this.http.put(this.api + 'user/' + this.user.service_number, payload, this.options)
+  }
+
+  deleteUser(){  
+    return this.http.delete(this.api + 'user/' + this.user.service_number, this.options)
   }
 }

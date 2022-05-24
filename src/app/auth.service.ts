@@ -56,6 +56,7 @@ export class AuthService implements CanActivate {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     this.isLoggedIn = false
+    this.router.navigate(['/login'])
 }
 
   register(data: any){
@@ -73,6 +74,9 @@ export class AuthService implements CanActivate {
         if (res ) {
           return res
         }
+        else {
+          throw new Error('Could not register');
+        }      
       }));
 
   }

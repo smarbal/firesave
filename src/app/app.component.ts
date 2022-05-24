@@ -15,16 +15,16 @@ export class AppComponent {
  
   isLoggedIn  = this.authService.isLoggedIn
   alert: boolean
-  user: any 
+  user: any = this.userService.user
 
   constructor(private router: Router,private authService: AuthService, private socket: Socket, private userService: UserService) { 
     this.alert = false
-    this.user =this.userService.user
   }
   ngOnInit() {
     this.router.events.subscribe(event => {
-      if (event.constructor.name === "NavigationEnd") {
+      if (event.constructor.name === "NavigationEnd") { // Might not be optimal since it will be called at every navigation event
        this.isLoggedIn = this.authService.isLoggedIn;
+       this.user = this.userService.user;    
       }
     })
     this.socket.on('alert', () => {

@@ -17,9 +17,9 @@ export class LoginComponent {
       .subscribe(result => { 
         if (result) {
           //this.router.navigate(['/']);
-          this.router.navigate(['home'], { });
           this.authService.isLoggedIn = true;
           this.userService.setUser();
+          this.router.navigate(['home'], { });
         }
         else  {
           this.invalidLogin = true; 

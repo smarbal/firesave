@@ -24,10 +24,8 @@
     <label for="inputProm" class="sr-only">Prom</label>
     <input  name="prom_name" ngModel class="form-control" [(ngModel)]="user.prom_name"
         required>
-    <button class="btn btn-lg btn-block btn-danger" type="submit">Save</button>
-
-
-
-
+    <button class="btn btn-lg btn-block btn-warning" type="submit">Save</button>
 
 </form>
+
+<button class="btn btn-lg btn-block btn-danger" (click)="deleteUser()">Delete account</button>
