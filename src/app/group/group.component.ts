@@ -12,13 +12,21 @@ export class GroupComponent  {
   headers = ["Firstname", "Lastname", "Service number", "Room", "Inside"];  // Titles of the table
   fields = ["firstname", "lastname", "service_number", "room"]; // Inside is not in it because it's easier to apply a style based on value
   students :any 
+  isManager :boolean = false;
   editMode: boolean = false
   prom = this.groupService.prom
+
+
   constructor(private groupService: GroupService, private userService: UserService) { 
     groupService.getGroup(userService.user.prom_name).subscribe((data: any) =>
     {
       this.students = data.users;
-      console.log(this.students);
+      this.isManager = data.manager.find((e: { service_number: any; }) => {
+        if (e.service_number === 1) {
+          return true;
+        }
+        return false;});
+      console.log(data);
     }
     )
   }

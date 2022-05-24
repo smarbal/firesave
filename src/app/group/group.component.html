@@ -45,5 +45,5 @@
 </div>
 </form>
 
-<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="!editMode">Enter edit mode</button>
+<button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="!editMode && isManager">Enter edit mode</button>
 <button type="button" class="btn btn-danger" id="Edit" (click)="changeEdit()" *ngIf="editMode">Exit edit mode</button>
