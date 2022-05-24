@@ -36,3 +36,6 @@ form {
     max-width:fit-content;
     margin-top: 30px;
 }
+.empty{
+    background-color: slategray;
+}
