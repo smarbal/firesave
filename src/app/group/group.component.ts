@@ -22,7 +22,7 @@ export class GroupComponent  {
     {
       this.students = data.users;
       this.isManager = data.manager.find((e: { service_number: any; }) => {
-        if (e.service_number === 1) {
+        if (e.service_number === userService.user.service_number) {
           return true;
         }
         return false;});
