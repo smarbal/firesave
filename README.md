@@ -27,8 +27,8 @@ An alert must be sent by several people for the server to go into alert mode and
 Conveniently, alerts are handled by a websocket. We can thus receive an alert message but also send it to users ( to display of a banner during an alert message in this case). Differentiating users who send alerts is not implemented. When a certain number of alerts are sent, a global boolean changes to 1 on the server and is reset to 0 after a certain time. When it is set to 1, the *inside* field is included in all requests where *user* objects are sent.
 
 ## Preview 
+![](https://i.imgur.com/35XAF75.png)
 
-![](https://i.imgur.com/rI9BGHA.png)
 
 ![](https://i.imgur.com/NFL4O3h.png)
 
