@@ -3,7 +3,7 @@ Backend : https://github.com/smarbal/firesave-API
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
-The goal of the project is to be able, as an accomodation provider (ie. a student residency), whether people are supposed to be in their room or not. In case of fire, this permits to identify who is missing at the rally point and thus might be in danger. 
+The goal of the project is to be able, as an accomodation provider (ie. a student residency), to know whether people are supposed to be in their room or not. In case of fire, this permits to identify who is missing at the rally point and thus who might be in danger. 
 
 Full report : https://hackmd.io/@-rSxv3nFRUKlQDQF3ztJbQ/SynS87kXq
 
