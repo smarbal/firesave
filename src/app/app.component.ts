@@ -25,6 +25,7 @@ export class AppComponent {
       if (event.constructor.name === "NavigationEnd") { // Might not be optimal since it will be called at every navigation event
        this.isLoggedIn = this.authService.isLoggedIn;
        this.user = this.userService.user;    
+       this.ngOnInit();
       }
     })
     this.socket.on('alert', () => {

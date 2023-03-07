@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   user = JSON.parse(localStorage.getItem('user')!);
-  api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
+  api = "/api/"   //http://smarbal.xyz:8000/api/
 
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')

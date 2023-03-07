@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AdminService {
 
-  api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
+  api = "/api/"   //http://smarbal.xyz:8000/api/
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                               .set('x-access-token',this.authService.token! )

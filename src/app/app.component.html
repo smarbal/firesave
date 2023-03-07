@@ -21,21 +21,13 @@
         <a class="nav-link" routerLink="group" routerLinkActive="active">Group</a>
         <a class="nav-link" routerLink="settings" routerLinkActive="active">Settings</a> 
         <a class="nav-link" routerLink="admin" routerLinkActive="active" *ngIf="user.isAdmin">Admin</a>
-        
-        
       </div>
-      
+      <div class="navbar-nav" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+        <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+      </div>
     </div>
-    <div class="collapse navbar-collapse justify-content-right" mdbCollapse #rightAligned="mdbCollapse" *ngIf="!isLoggedIn">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>  
-        </li>
-      </ul>
-    </div>
+
     <div class="collapse navbar-collapse justify-content-right" mdbCollapse #rightAligned="mdbCollapse" *ngIf="isLoggedIn">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">

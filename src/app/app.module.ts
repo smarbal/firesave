@@ -20,7 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select'; 
 
-const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+const config: SocketIoConfig = { url: 'http://smarbal.xyz', options: {} };
 
 
 @NgModule({

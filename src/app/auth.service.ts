@@ -9,7 +9,7 @@ export class AuthService implements CanActivate {
   isLoggedIn: boolean;
   token = localStorage.getItem('token')
   jwt = new JwtHelperService();
-  api = "http://localhost:8000/api/"   //http://smarbal.xyz:8000/api/
+  api = "/api/"   //http://smarbal.xyz:8000/api/
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
