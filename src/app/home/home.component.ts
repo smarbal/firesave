@@ -25,4 +25,7 @@ export class HomeComponent {
   alert(){
     this.socket.emit('alert', 'alert');
   }
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+}
 }

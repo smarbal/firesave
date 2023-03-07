@@ -17,7 +17,7 @@
 
     <button type="button"
             class="btn btn-danger btn-xlarge"
-            (click)="collapse.toggle()" 
+            (click)="collapse.toggle(); scroll(target_button)" 
             [attr.aria-expanded]="showAlertValidation"
       aria-controls="collapseExample">
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -31,7 +31,7 @@
        [(ngbCollapse)]="!showAlertValidation">
        Are you sure ? This will alert everyone in the building. 
        <br>
-       <button type="button" class="btn btn-danger" (click)="alert()">
+       <button #target_button type="button" class="btn btn-danger" (click)="alert()">
         <i class="bi bi-megaphone-fill"></i> Yes !
       </button>
       

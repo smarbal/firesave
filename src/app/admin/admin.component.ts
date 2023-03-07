@@ -19,7 +19,6 @@ export class AdminComponent {
     adminService.getProms().subscribe((data: any) =>
     {
       this.proms = data;
-      console.log(this.proms);
     }
     )
   }
@@ -31,7 +30,6 @@ export class AdminComponent {
   removeProm(prom_name: any){
     this.adminService.removeProm(prom_name)
     .subscribe((data)=>{
-      console.log(data)
       const removeIndex = this.proms.findIndex( (item: { prom_name: any; })=> item.prom_name === prom_name );
       this.proms.splice( removeIndex, 1 );
     })

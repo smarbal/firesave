@@ -26,7 +26,6 @@ export class GroupComponent  {
           return true;
         }
         return false;});
-      console.log(data);
     }
     )
   }
@@ -36,23 +35,19 @@ export class GroupComponent  {
     this.editMode = !this.editMode
   }
   removeUser(service_number: any){
-    console.log(service_number)
     this.groupService.removeUser(service_number)
     .subscribe((data)=>{
-      console.log(data)
       const removeIndex = this.students.findIndex( (item: { service_number: any; })=> item.service_number === service_number );
       this.students.splice( removeIndex, 1 );
     })
   }
   
   addUser(service_number: any){
-    console.log(service_number)
     this.groupService.addUser(service_number)
     .subscribe((data)=>{
       this.groupService.getGroup(this.userService.user.prom_name).subscribe((data: any) =>     //Sequelize doesn'returns the added User so we must fetch it manually
     {
       this.students = data.users;
-      console.log(this.students);
     }
     )
     })

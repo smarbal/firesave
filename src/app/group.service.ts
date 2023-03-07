@@ -29,7 +29,6 @@ export class GroupService {
   }
   addUser(service_number: any){
     const payload = new URLSearchParams();
-    console.log(service_number)
     payload.set("token", this.authService.token!)
     payload.set("service_number", service_number)
 

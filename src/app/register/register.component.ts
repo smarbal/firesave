@@ -18,11 +18,9 @@ export class RegisterComponent  {
     this.authService.register(data)
     .subscribe(result => { 
       if (result){
-        console.log("Registered");
         this.router.navigate(['/login']);
       }
       else{
-        console.log("Can't  register")
         this.invalidRegister = true; 
       }
     });

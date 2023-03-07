@@ -19,7 +19,6 @@ export class SettingsComponent  {
     this.userService.update(data)
     .subscribe(result => { 
       if (result){
-        console.log("Updated data")
         this.userService.saveUser()
       }
       else  
@@ -29,7 +28,6 @@ export class SettingsComponent  {
   deleteUser(){
     this.userService.deleteUser().subscribe(
       ()  => {
-        console.log('deleted')
         this.authService.logout()
       }
     )

@@ -7,6 +7,9 @@
           </th>
       </tr>
     </thead>
+    <div  *ngIf="!students[0].hasOwnProperty('inside')" students>
+      <h3> Presence will only be shown in alert mode.</h3>
+    </div>
     <tbody>
       <tr *ngFor = "let row of students">
         <td *ngFor = "let column of fields">
